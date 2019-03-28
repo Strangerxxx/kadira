@@ -1,6 +1,9 @@
 FROM alpine:3.8
 
-RUN apk add --no-cache ca-certificates nodejs npm mongodb
+RUN echo 'http://dl-cdn.alpinelinux.org/alpine/v3.7/main' >> /etc/apk/repositories \
+    && echo 'http://dl-cdn.alpinelinux.org/alpine/v3.7/community' >> /etc/apk/repositories
+
+RUN apk add --no-cache ca-certificates nodejs npm mongodb=3.4.10-r0
 
 WORKDIR /app
 
