@@ -38,12 +38,16 @@ MongoCluster.initFromEnv(function(err, cluster) {
     throw err;
   } else {
     DBS.metricsCluster = cluster;
+    console.log('connecting database');
     mongodb.MongoClient.connect(process.env.MONGO_URL, afterMongoURLConnected);
+    console.log('connected to database');
   }
 
 });
 
 function afterMongoURLConnected(err, db) {
+  console.log('afterMongoConnected callback');
+  console.dir(db);
   if (err) {
     throw err;
   } else {
