@@ -4,6 +4,7 @@ module.exports = function(db) {
   var appsCollection = db.collection('apps');
 
   return function(req, res, next) {
+    console.dir(req);
     var appId = req.appId;
     var appSecret = req.appSecret;
     if (appId && appSecret) {
